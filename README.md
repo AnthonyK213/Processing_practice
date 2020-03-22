@@ -1,2 +1,2 @@
 # Wave
-A wave simulation test in processing.
+A wave simulation test in processing, based on simplified Laplace linear wave.
