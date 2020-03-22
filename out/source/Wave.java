@@ -40,15 +40,8 @@ public void settings() {
 
 public void setup() {
   camera(camPos[0], camPos[1], camPos[2], camPos[3], camPos[4], camPos[5], camPos[6], camPos[7], camPos[8]);
-
   noFill();
-
-  for (int x = 1; x < cnt - 1; x++) {
-    for (int y = 1; y < cnt - 1; y++) {
-      amp[x][y] = 0;
-      spd[x][y] = 0;
-    }
-  }
+  init();
 }
 
 public void draw() {
@@ -58,7 +51,20 @@ public void draw() {
 }
 
 public void keyPressed() {
-  if (keyCode == ENTER) saveFrame("frame.png");
+  if (keyCode == ENTER) {
+    saveFrame("frame.png");
+  } else if (key == 'c') {
+    init();
+  }
+}
+
+public void init() {
+  for (int x = 1; x < cnt - 1; x++) {
+    for (int y = 1; y < cnt - 1; y++) {
+      amp[x][y] = 0;
+      spd[x][y] = 0;
+    }
+  }
 }
 public PVector getMouse(float[] camPos) {
   PVector eye = new PVector(camPos[0], camPos[1], camPos[2]);
