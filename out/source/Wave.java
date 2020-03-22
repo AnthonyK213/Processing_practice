@@ -129,7 +129,7 @@ public void wave() {
       float brk = noise(x, y) < .2f ? 0 : 1;
       int highLight = ampNew[x][y] > ampNew[x+1][y] + .1f ? 127 : 255;
       strokeWeight((map(y, 0, cnt, .25f, 2)) * brk);
-      if (spd[x][y] < extraAmp / 3) {
+      if (spd[x][y] < extraAmp / 3f) {
         stroke(0xfff4e3b1);
         vertex(x*zoom, y*zoom, ampNew[x][y]);
       } else {
