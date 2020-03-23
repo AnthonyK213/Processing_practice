@@ -66,6 +66,11 @@ public void init() {
     }
   }
 }
+/**
+Thanks to the code from myT
+https://processing.org/discourse/beta/num_1159146044.html
+*********************************************************/
+
 public PVector getMouse(float[] camPos) {
   PVector eye = new PVector(camPos[0], camPos[1], camPos[2]);
   PVector center = new PVector(camPos[3], camPos[4], camPos[5]);
@@ -88,12 +93,16 @@ public PVector getMouse(float[] camPos) {
   }
   return intersection;
 }
+/**
+@BenTommyE, whose algorithm inspired me to finish this work.
+************************************************************/
+
 public void wave() {
   int msX = floor(1 + samRad + (cnt - (1 + samRad) * 2) * getMouse(camPos).x / res);
   int msY = floor(1 + samRad + (cnt - (1 + samRad) * 2) * getMouse(camPos).y / res);
   msX = constrain(msX, samRad+1, cnt-samRad*2-1);
   msY = constrain(msY, samRad+1, cnt-samRad*2-1);
-  
+  // Every point tends to move back to the balance point of the surrounding points.
   for (int x = samRad; x < cnt - samRad; x++) {
     for (int y = samRad; y < cnt - samRad; y++) {
       float dif = 0;
@@ -126,9 +135,10 @@ public void wave() {
   for (int y = 0; y < cnt; y += fct) {
     beginShape();
     for (int x = 0; x < cnt - 1; x++) {
-      float brk = noise(x, y) < .2f ? 0 : 1;
-      int highLight = ampNew[x][y] > ampNew[x+1][y] + .1f ? 127 : 255;
+      float brk = noise(x, y) < .2f ? 0 : 1;    // Make it more like hand-drawn curves.
+      int highLight = ampNew[x][y] > ampNew[x+1][y] + .1f ? 127 : 255;    // Highlight and shadow.
       strokeWeight((map(y, 0, cnt, .25f, 2)) * brk);
+      // Effect of light diffusion.
       if (spd[x][y] < extraAmp / 3f) {
         stroke(0xfff4e3b1);
         vertex(x*zoom, y*zoom, ampNew[x][y]);
