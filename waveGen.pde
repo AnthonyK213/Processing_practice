@@ -3,7 +3,7 @@ void wave() {
   int msY = floor(1 + samRad + (cnt - (1 + samRad) * 2) * getMouse(camPos).y / res);
   msX = constrain(msX, samRad+1, cnt-samRad*2-1);
   msY = constrain(msY, samRad+1, cnt-samRad*2-1);
-  
+  // Every point tends to move back to the balance point of the surrounding points.
   for (int x = samRad; x < cnt - samRad; x++) {
     for (int y = samRad; y < cnt - samRad; y++) {
       float dif = 0;
@@ -36,9 +36,10 @@ void wave() {
   for (int y = 0; y < cnt; y += fct) {
     beginShape();
     for (int x = 0; x < cnt - 1; x++) {
-      float brk = noise(x, y) < .2 ? 0 : 1;
-      int highLight = ampNew[x][y] > ampNew[x+1][y] + .1 ? 127 : 255;
+      float brk = noise(x, y) < .2 ? 0 : 1;    // Make it more like hand-drawn curves.
+      int highLight = ampNew[x][y] > ampNew[x+1][y] + .1 ? 127 : 255;    // Highlight and shadow.
       strokeWeight((map(y, 0, cnt, .25, 2)) * brk);
+      // Effect of light diffusion.
       if (spd[x][y] < extraAmp / 3f) {
         stroke(#f4e3b1);
         vertex(x*zoom, y*zoom, ampNew[x][y]);
