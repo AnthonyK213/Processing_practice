@@ -40,7 +40,7 @@ void wave() {
   for (int y = 0; y < cnt; y += fct) {
     beginShape();
     for (int x = 0; x < cnt - 1; x++) {
-      float brk = noise(x, y) < .2 ? 0 : 1;    // Make it more like hand-drawn curves.
+      float brk = noise(x, y) < .2 ? 0 : 1;    // Make it more like hand-drawn curve.
       int highLight = ampNew[x][y] > ampNew[x+1][y] + .1 ? 127 : 255;    // Highlight and shadow.
       strokeWeight((map(y, 0, cnt, .25, 2)) * brk);
       // Effect of light diffusion.
