@@ -1,3 +1,7 @@
+/**
+@BenTommyE, whose algorithm inspired me to finish this work.
+************************************************************/
+
 void wave() {
   int msX = floor(1 + samRad + (cnt - (1 + samRad) * 2) * getMouse(camPos).x / res);
   int msY = floor(1 + samRad + (cnt - (1 + samRad) * 2) * getMouse(camPos).y / res);
