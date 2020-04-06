@@ -1,5 +1,5 @@
 /**
-Thanks to the code from myT
+Thanks to the code from myT.
 https://processing.org/discourse/beta/num_1159146044.html
 *********************************************************/
 
