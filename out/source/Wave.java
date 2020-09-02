@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.io.OutputStream; 
 import java.io.IOException; 
 
-public class Wave extends PApplet {
+public class wave extends PApplet {
 
 int cnt = 250;
 int fct = 1;    // Reduction factor of the number of curves.
@@ -67,7 +67,7 @@ public void init() {
   }
 }
 /**
-Thanks to the code from myT
+Thanks to the code from myT.
 https://processing.org/discourse/beta/num_1159146044.html
 *********************************************************/
 
@@ -135,7 +135,7 @@ public void wave() {
   for (int y = 0; y < cnt; y += fct) {
     beginShape();
     for (int x = 0; x < cnt - 1; x++) {
-      float brk = noise(x, y) < .2f ? 0 : 1;    // Make it more like hand-drawn curves.
+      float brk = noise(x, y) < .2f ? 0 : 1;    // Make it more like hand-drawn curve.
       int highLight = ampNew[x][y] > ampNew[x+1][y] + .1f ? 127 : 255;    // Highlight and shadow.
       strokeWeight((map(y, 0, cnt, .25f, 2)) * brk);
       // Effect of light diffusion.
@@ -170,7 +170,7 @@ public void gully() {
   }
 }
   static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "Wave" };
+    String[] appletArgs = new String[] { "wave" };
     if (passedArgs != null) {
       PApplet.main(concat(appletArgs, passedArgs));
     } else {

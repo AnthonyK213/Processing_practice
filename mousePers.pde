@@ -1,4 +1,4 @@
-/**
+/*********************************************************
 Thanks to the code from myT.
 https://processing.org/discourse/beta/num_1159146044.html
 *********************************************************/
@@ -13,8 +13,8 @@ PVector getMouse(float[] camPos) {
   float distanceEyeMousePlane = (height / 2) / tan(PI / 6);
 
   PVector mousePoint = look.mult(distanceEyeMousePlane);
-  mousePoint = mousePoint.add(left.mult((float)((mouseX-width/2)*-1)));
-  mousePoint = mousePoint.add(up.mult((float)(mouseY-height/2)));
+  mousePoint = mousePoint.add(left.mult((float)((mouseX - width / 2) * -1)));
+  mousePoint = mousePoint.add(up.mult((float)(mouseY - height / 2)));
 
   PVector intersection = new PVector();
   if (mousePoint.z != 0) {
