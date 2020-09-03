@@ -1,8 +1,8 @@
-int mnt = 20;
+int mnt = 100;
 int[][] l = new int[mnt][mnt];
 int[][] newL = new int[mnt][mnt];
 
-int d = 40;
+int d = 8;
 int res = mnt * d;
 
 boolean start = false;
