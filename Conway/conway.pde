@@ -1,4 +1,4 @@
-int mnt = 100;
+int mnt = 50;
 int[][] l = new int[mnt][mnt];
 int[][] newL = new int[mnt][mnt];
 
@@ -27,9 +27,9 @@ void draw() {
   background(255);
   translate(d/2, d/2);
   dr();
-  // delay(1000);
   if (start) {
     fn();
+    delay(300);
   }
 }
 
@@ -62,10 +62,10 @@ void dr() {
       strokeWeight(0);
       if (l[x][y] == 1) {
         fill(0);
-        rect(x*d, y*d, d, d);
+        rect(x * d, y * d, d, d);
       } else {
         fill(255);
-        rect(x*d, y*d, d, d);
+        rect(x * d, y * d, d, d);
       }
     }
   }
